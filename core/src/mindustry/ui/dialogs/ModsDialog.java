@@ -114,7 +114,7 @@ public class ModsDialog extends BaseDialog{
 
     void getModList(Cons<Seq<ModListing>> listener){
         if(modList == null){
-            Http.get("https://stevessr-group.github.io/mods.json", response -> {
+            Http.get("https://stevessr-group.github.io/MindustryMods/mods.json", response -> {
                 String strResult = response.getResultAsString();
 
                 Core.app.post(() -> {
