@@ -45,5 +45,5 @@ jobs:
         with:
           name: Mindustry
           path: |
-             ~/desktop/build/libs/Mindustry.jar
-             ~/server/build/libs/server-*.jar
+             ./desktop/build/libs/Mindustry.jar
+             ./server/build/libs/server-*.jar
