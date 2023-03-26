@@ -36,10 +36,14 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('*.gradle', 'gradle.properties', '**/*.accesswidener') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-      - name: Run Gradle
+      - name: Run Gradle desktop
         run: ./gradlew desktop:dist
+      - name: Run Gradlew server
+        run: ./gradlew server:dist
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
           name: Mindustry
-          path: Min*.jar
+          path: |
+             ~/desktop/build/libs/Mindustry.jar
+             ~/server/build/libs/server-*.jar
