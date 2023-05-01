@@ -8,6 +8,8 @@ on:
       - "stable"
       - "development"
       - "master"
+      - "patch-1"
+      - "patch-2"
   pull_request:
     paths:
       - "**.java"
@@ -40,6 +42,8 @@ jobs:
         run: ./gradlew desktop:dist
       - name: Run Gradlew server
         run: ./gradlew server:dist
+      - name: Run Gradlew Android
+        run: ./gradlew android:assembleRelease -PversionType=bleeding-edge --stacktrace
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
@@ -47,3 +51,4 @@ jobs:
           path: |
              ./desktop/build/libs/Mindustry.jar
              ./server/build/libs/server-*.jar
+             ./android/build/outputs/apk/release/android-*.apk
